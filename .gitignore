@@ -49,4 +49,5 @@ pnpm-debug.log*
 .sass-cache/
 connect.lock
 coverage/
+package-lock.json
 
