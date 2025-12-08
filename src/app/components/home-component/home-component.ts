@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TypewritterEffect } from '../../directive/typewritter-effect';
 
 @Component({
   selector: 'app-home-component',
-  imports: [RouterModule],
+  imports: [RouterModule, TypewritterEffect],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
 })
