@@ -3478,3 +3478,109 @@ color-scheme: dark;
     @apply border-border;
     }
 }
+
+
+:root {
+  /* Primary brand colors */
+  --primary: #F09A57;
+  --primary-deep: #C97537;
+  --primary-soft: #F3B27D;
+
+  /* Backgrounds */
+  --bg-main: #151515;
+  --bg-soft: #1E1D1D;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* Text */
+  --text-main: #FAFAFA;
+  --text-soft: #BDBBBB;
+
+  /* Accents */
+  --accent-purple: #8B6F7A;
+  --accent-sand: #F2E4D8;
+
+  /* Borders */
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-strong: 0 6px 20px rgba(0,0,0,0.45);
+
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.25rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+}
+
+
+.btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: none;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: var(--bg-main);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn.primary:hover {
+  background: var(--primary-deep);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn.primary:active {
+  transform: scale(0.97);
+}
+
+.btn.secondary {
+  background: var(--surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+}
+
+.btn.secondary:hover {
+  background: var(--surface-hover);
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn.outline:hover {
+  background: rgba(240, 154, 87, 0.1); /* fallback for rgba var */
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-soft);
+}
+
+.btn.ghost:hover {
+  color: var(--text-main);
+}
