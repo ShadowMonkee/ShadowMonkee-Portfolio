@@ -1,0 +1,57 @@
+.about-snapshot-container {
+  width: 100%;
+  padding: 6rem 1.5rem;
+  background: rgba(255, 245, 235, 0.03); /* ultra subtle */
+}
+
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-inner h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #f3e5d0; /* pastel sand */
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #cfc9c2;
+  margin-bottom: 3rem;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.highlight-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #ffb07c; /* your sunset orange accent */
+}
+
+.highlight-card p {
+  font-size: 0.95rem;
+  color: #b9b4ae;
+}
