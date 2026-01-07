@@ -1,44 +1,38 @@
-<footer class="bg-[#1D2130] text-white py-10">
-  <div class="container mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-6">
-    
-    <!-- Branding -->
-    <!-- <div class="text-center md:text-left">
-      <p class="text-gray-400 font-bold text-xl bg-clip-text">
-        ShadowMonkee
-      </p>
-      <p class="text-gray-400 text-sm mt-1">
-        Software Developer & Cybersecurity Enthusiast
-      </p>
-    </div> -->
+<footer class="border-t border-white/5">
+  <div class="footer-container mx-auto px-6 py-10 flex flex-col gap-8">
 
-    <div class="flex flex-1 justify-end px-5 py-4 gap-10 mt-12">
+    <!-- Navigation -->
+    <div class="flex flex-wrap justify-center md:justify-end gap-10">
       <button
-        type="button" 
-        class="text-[#525560] font-medium"
+        type="button"
+        class="footer-link"
         routerLink="/"
         routerLinkActive="active"
       >
         Home
       </button>
+
       <button
-        type="button" 
-        class="text-[#525560] font-medium"
+        type="button"
+        class="footer-link"
         routerLink="/about-me"
         routerLinkActive="active"
       >
         About Me
       </button>
+
       <button
-        type="button" 
-        class="text-[#525560] font-medium"
+        type="button"
+        class="footer-link"
         routerLink="/projects"
         routerLinkActive="active"
       >
         Projects
       </button>
+
       <button
-        type="button" 
-        class="text-[#525560] font-medium"
+        type="button"
+        class="footer-link"
         routerLink="/contact"
         routerLinkActive="active"
       >
@@ -46,11 +40,14 @@
       </button>
     </div>
 
-      <!-- Bottom note -->
-    <div class="text-center text-sm text-gray-500 mt-8 mb-8">
-        © 2025 ShadowMonkee — All rights reserved.
+    <!-- Divider -->
+    <div class="h-px bg-white/5"></div>
+
+    <!-- Bottom note -->
+    <div class="copy-note text-center text-sm text-[var(--text-soft)]">
+      © 2025 <span class="text-[var(--primary)] font-medium">ShadowMonkee</span>
+      — All rights reserved.
     </div>
+
   </div>
-
-
 </footer>

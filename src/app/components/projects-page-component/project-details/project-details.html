@@ -1,0 +1,27 @@
+<section *ngIf="project" class="project-detail">
+  <div class="project-inner">
+
+    <img
+      [src]="project.image"
+      [alt]="project.title"
+      class="project-hero"
+    />
+
+    <h1>{{ project.title }}</h1>
+    <p class="tech">{{ project.tech }}</p>
+    <p class="summary">{{ project.summary }}</p>
+
+    <div class="content">
+      <h3>Overview</h3>
+      <p *ngFor="let paragraph of project.description">
+        {{ paragraph }}
+      </p>
+
+      <h3>Key Highlights</h3>
+      <ul>
+        <li *ngFor="let item of project.highlights">{{ item }}</li>
+      </ul>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,19 @@
+.footer-container, .copy-note {
+    margin-top: 20px;
+}
+
+.footer-link {
+  color: var(--text-soft);
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+footer {
+    background: var(--bg-secondary);
+    margin-bottom: 20px;
+}

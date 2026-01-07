@@ -14,13 +14,60 @@
       >
     </div>
 
-    <!-- Navigation -->
-    <div class="flex gap-8">
-      <a routerLink="/" routerLinkActive="active" class="nav-btn">Home</a>
-      <a routerLink="/about-me" routerLinkActive="active" class="nav-btn">About Me</a>
-      <a routerLink="/projects" routerLinkActive="active" class="nav-btn">Projects</a>
-      <a routerLink="/contact" routerLinkActive="active" class="nav-btn">Contact</a>
+    <!-- Desktop Navigation -->
+    <div class="desktop-navbar md:flex gap-8">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-btn"
+      >
+        Home
+      </a>
+      <a routerLink="/about-me" routerLinkActive="active" class="nav-btn">
+        About Me
+      </a>
+      <a routerLink="/projects" routerLinkActive="active" class="nav-btn">
+        Projects
+      </a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-btn">
+        Contact
+      </a>
     </div>
 
+    <!-- Mobile Hamburger -->
+    <button
+      class="mobile-menu-toggle hamburger"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="mobileMenuOpen">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="mobile-link"
+      (click)="closeMobileMenu()"
+    >Home</a>
+
+    <a routerLink="/about-me" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
+      About Me
+    </a>
+
+    <a routerLink="/projects" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
+      Projects
+    </a>
+
+    <a routerLink="/contact" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
+      Contact
+    </a>
   </div>
 </div>

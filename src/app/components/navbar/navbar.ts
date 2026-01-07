@@ -15,4 +15,14 @@ export class Navbar {
     this.isScrolled = window.scrollY > 20;
   }
 
+  mobileMenuOpen = false;
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
+  }
+
 }

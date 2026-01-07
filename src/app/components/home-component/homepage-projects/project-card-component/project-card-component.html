@@ -1,0 +1,15 @@
+<div class="project-card">
+  <div
+    class="project-image"
+    [style.backgroundImage]="'url(' + image + ')'"
+  ></div>
+
+  <div class="project-info">
+    <h4>{{ title }}</h4>
+    <p class="tech">{{ tech }}</p>
+
+    <a [routerLink]="link" class="project-link">
+      View Project →
+    </a>
+  </div>
+</div>
