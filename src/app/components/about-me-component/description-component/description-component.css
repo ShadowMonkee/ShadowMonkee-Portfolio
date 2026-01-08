@@ -1,0 +1,145 @@
+/* Page container */
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 140px 24px 80px; /* top padding accounts for fixed navbar */
+  color: var(--text-soft);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+/* Header */
+.about-header {
+  margin-bottom: 72px;
+}
+
+.about-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.about-header .intro {
+  max-width: 720px;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* Sections */
+.about-section {
+  margin-bottom: 64px;
+}
+
+.about-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.about-section h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--primary);
+  opacity: 0.7;
+}
+
+.about-section p {
+  max-width: 760px;
+  margin-bottom: 16px;
+}
+
+/* Lists */
+.about-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 16px;
+}
+
+.about-section li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+.about-section li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Experience highlights */
+.highlights {
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+}
+
+/* Tech section */
+.tech-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.tech-group h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.tech-group ul li {
+  font-size: 0.95rem;
+}
+
+/* CTA */
+.about-cta {
+  margin-top: 96px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-cta p {
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cta-button:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .about-container {
+    padding-top: 120px;
+  }
+
+  .about-header {
+    margin-bottom: 56px;
+  }
+
+  .about-section {
+    margin-bottom: 48px;
+  }
+}

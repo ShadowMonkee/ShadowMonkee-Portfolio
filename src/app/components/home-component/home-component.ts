@@ -7,7 +7,7 @@ import { HomepageProjects } from './homepage-projects/homepage-projects';
 import { HomepageServices } from './homepage-services/homepage-services';
 
 @Component({
-  selector: 'app-home-component',
+  selector: 'home-component',
   imports: [RouterModule, HomeHeroSection, AboutSnapshotSection, SkillsSection, HomepageProjects, HomepageServices],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
