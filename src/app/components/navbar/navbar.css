@@ -1,3 +1,21 @@
+/* Logo wrapper */
+.navbar-logo {
+  height: 100%;              /* Match navbar height */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 0;           /* Controls logo breathing space */
+}
+
+/* Logo image */
+.navbar-logo img {
+  height: 100%;              /* Scale with navbar */
+  width: auto;               /* Preserve aspect ratio */
+  object-fit: contain;       /* Prevent distortion */
+  display: block;
+}
+
+
 /* Navbar base state */
 .navbar {
   width: 100%;
@@ -72,7 +90,7 @@
 
 .mobile-menu {
   position: absolute;
-  top: 75px;
+  top: 130px;
   left: 0;
   width: 100%;
   background: rgba(21, 21, 21, 0.95);

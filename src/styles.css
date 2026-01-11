@@ -991,6 +991,10 @@ height: 50vh;
 height: 75px;
 }
 
+.h-\[150px\] {
+height: 150px;
+}
+
 .h-full {
 height: 100%;
 }
