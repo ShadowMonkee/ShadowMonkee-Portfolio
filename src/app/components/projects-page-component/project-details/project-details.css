@@ -1,11 +1,33 @@
 .project-detail {
-  padding: 5rem 1.5rem;
+  padding: 12rem 1.5rem;
 }
 
 .project-inner {
   max-width: 900px;
   margin: 0 auto;
 }
+
+.project-inner p {
+  color: var(--text-soft);
+}
+
+.project-inner h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  color: var(--primary);
+  margin-bottom: 28px;
+}
+
+.project-inner h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  margin-top: 12px;
+  background: var(--primary);
+  opacity: 0.6;
+}
+
 
 .project-hero {
   width: 100%;
@@ -26,4 +48,8 @@
 .content h3 {
   margin-top: 2rem;
   color: var(--primary);
+}
+
+.content ul li {
+  color: var(--text-soft);
 }
