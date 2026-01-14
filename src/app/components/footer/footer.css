@@ -30,6 +30,7 @@ footer {
 }
 
 .footer-icons a {
+  color: whitesmoke;
   font-size: 1.2rem;
   transition: color 0.25s ease, transform 0.25s ease;
 }
