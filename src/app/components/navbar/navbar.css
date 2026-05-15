@@ -1,138 +1,217 @@
-/* Logo wrapper */
-.navbar-logo {
-  height: 100%;              /* Match navbar height */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: background-color 300ms var(--ease-out-quart),
+              box-shadow 300ms var(--ease-out-quart);
+}
+
+.navbar-scrolled {
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  padding: 2px 0;           /* Controls logo breathing space */
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 1.5rem;
+  transition: height 300ms var(--ease-out-quart);
 }
 
-/* Logo image */
+.navbar-scrolled .navbar-inner {
+  height: 56px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
 .navbar-logo img {
-  height: 100%;              /* Scale with navbar */
-  width: auto;               /* Preserve aspect ratio */
-  object-fit: contain;       /* Prevent distortion */
+  height: 30px;
+  width: auto;
+  object-fit: contain;
   display: block;
+  transition: height 300ms var(--ease-out-quart),
+              opacity 200ms;
 }
 
-
-/* Navbar base state */
-.navbar {
-  width: 100%;
-  transition: 0.5s ease;
+.navbar-scrolled .navbar-logo img {
+  height: 26px;
 }
 
-/* Darkens a bit when user scrolls */
-.navbar-scrolled {
-  background: rgba(21, 21, 21, 0.9);
-  transition: 0.5s ease;
+.navbar-logo:hover img {
+  opacity: 0.75;
 }
 
-/* Nav button base */
+/* Desktop nav */
+.desktop-navbar {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
 .nav-btn {
   position: relative;
   font-family: var(--font-body);
-  font-size: var(--fs-base);
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 400;
   color: var(--text-soft);
-  transition: color 0.25s ease;
-  margin-left: 16px;
-  margin-right: 16px;
+  padding: 0.4rem 0.875rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 200ms var(--ease-out-quart);
 }
 
-/* Hover color change */
 .nav-btn:hover {
-  color: var(--primary);
+  color: var(--text-main);
 }
 
-/* Active link color */
 .nav-btn.active {
-  color: var(--primary);
+  color: var(--text-main);
 }
 
-/* Thin underline for hover + active */
 .nav-btn::after {
-  content: "";
+  content: '';
   position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 0%;
+  left: 0.875rem;
+  right: 0.875rem;
+  bottom: 0;
+  height: 1px;
   background: var(--primary);
-  border-radius: 3px;
-  transition: width 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 260ms var(--ease-out-quart);
 }
 
 .nav-btn:hover::after,
 .nav-btn.active::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
+/* Contact CTA button */
+.contact-btn {
+  color: var(--primary) !important;
+  border: 1px solid rgba(232, 145, 74, 0.28);
+  border-radius: var(--radius-sm);
+  margin-left: 0.5rem;
+  transition: color 200ms var(--ease-out-quart),
+              background-color 200ms var(--ease-out-quart),
+              border-color 200ms var(--ease-out-quart),
+              transform var(--dur-fast) var(--ease-spring) !important;
+}
+
+.contact-btn::after {
+  display: none !important;
+}
+
+.contact-btn:hover {
+  color: var(--bg-main) !important;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.contact-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* Hamburger */
 .hamburger {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
-  height: 16px;
+  width: 22px;
+  height: 13px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .hamburger span {
   display: block;
-  height: 2px;
+  height: 1.5px;
   width: 100%;
   background: var(--text-soft);
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transform-origin: center;
+  transition: transform 280ms var(--ease-out-quart),
+              opacity 280ms var(--ease-out-quart);
 }
 
+.hamburger.open span:nth-child(1) {
+  transform: translateY(5.75px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7.25px) rotate(-45deg);
+}
+
+/* Mobile menu */
 .mobile-menu {
   position: absolute;
-  top: 130px;
+  top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(21, 21, 21, 0.95);
-  backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem 1.5rem;
-  transform: translateY(-10px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 380ms var(--ease-out-quart);
+  border-bottom: 1px solid transparent;
+  transition: max-height 380ms var(--ease-out-quart),
+              border-color 380ms var(--ease-out-quart);
 }
 
 .mobile-menu.open {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  max-height: 300px;
+  border-bottom-color: var(--border-light);
 }
 
 .mobile-link {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--text-soft);
   text-decoration: none;
-  transition: color 0.25s ease;
+  display: block;
+  padding: 0.875rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  transition: color 180ms var(--ease-out-quart),
+              background-color 180ms var(--ease-out-quart);
+}
+
+.mobile-link:last-child {
+  border-bottom: none;
 }
 
 .mobile-link:hover,
 .mobile-link.active {
   color: var(--primary);
+  background: var(--surface);
 }
 
-.mobile-menu-toggle {
-  display:none;
-}
-
-@media (max-width: 500px) {
+@media (max-width: 640px) {
   .desktop-navbar {
     display: none;
   }
-  .mobile-menu-toggle {
+  .hamburger {
     display: flex;
   }
 }

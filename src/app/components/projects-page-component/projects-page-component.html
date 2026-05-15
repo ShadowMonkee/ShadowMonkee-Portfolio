@@ -1,22 +1,65 @@
 <section class="projects-page">
   <div class="projects-inner">
 
-    <header class="projects-header">
-      <h1>Projects</h1>
-      <p class="muted">
-        Selected professional and personal projects focused on clean architecture,
-        performance, and maintainability.
+    <header class="projects-header" reveal>
+      <span class="section-label-line">Portfolio</span>
+      <h1 class="section-title">Projects</h1>
+      <p class="section-description">
+        Engineering work and cybersecurity research — built for production, documented for learning.
       </p>
     </header>
 
-    <div class="projects-grid">
-      <project-card
-        *ngFor="let project of projects"
-        [title]="project.title"
-        [tech]="project.tech"
-        [image]="project.image"
-        [link]="'/projects/' + project.slug"
-      ></project-card>
+    <!-- Tab bar -->
+    <div class="tab-bar" reveal>
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'engineering'"
+        (click)="setTab('engineering')"
+      >
+        <span class="tab-icon">&#123;&#125;</span>
+        Engineering
+        <span class="tab-count">{{ projects.length }}</span>
+      </button>
+
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'cybersecurity'"
+        (click)="setTab('cybersecurity')"
+      >
+        <span class="tab-icon">&#9650;</span>
+        Cybersecurity
+        <span class="tab-count">{{ cyberProjects.length }}</span>
+      </button>
+    </div>
+
+    <!-- Engineering tab -->
+    <div *ngIf="activeTab === 'engineering'" class="tab-panel">
+      <div class="projects-grid" revealStagger>
+        <project-card
+          *ngFor="let project of projects"
+          [title]="project.title"
+          [tech]="project.tech"
+          [image]="project.image"
+          [link]="'/projects/' + project.slug"
+        ></project-card>
+      </div>
+    </div>
+
+    <!-- Cybersecurity tab -->
+    <div *ngIf="activeTab === 'cybersecurity'" class="tab-panel">
+      <div class="cyber-legend">
+        <span class="legend-item"><span class="legend-dot dot-writeup"></span>Writeup</span>
+        <span class="legend-item"><span class="legend-dot dot-report"></span>Report</span>
+        <span class="legend-item"><span class="legend-dot dot-tool"></span>Tool</span>
+        <span class="legend-item"><span class="legend-dot dot-research"></span>Research</span>
+      </div>
+
+      <div class="cyber-grid" revealStagger>
+        <cyber-project-card
+          *ngFor="let project of cyberProjects"
+          [project]="project"
+        ></cyber-project-card>
+      </div>
     </div>
 
   </div>

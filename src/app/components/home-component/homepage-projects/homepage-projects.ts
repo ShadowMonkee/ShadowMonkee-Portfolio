@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProjectCardComponent } from './project-card-component/project-card-component';
 import { CommonModule } from '@angular/common';
+import { RevealDirective, RevealStaggerDirective } from '../../../directive/reveal.directive';
 
 @Component({
   selector: 'homepage-projects',
-  imports: [RouterModule, ProjectCardComponent, CommonModule],
+  imports: [RouterModule, ProjectCardComponent, CommonModule, RevealDirective, RevealStaggerDirective],
   templateUrl: './homepage-projects.html',
   styleUrl: './homepage-projects.css',
 })

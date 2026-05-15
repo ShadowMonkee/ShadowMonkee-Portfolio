@@ -9,6 +9,10 @@ export const routes: Routes = [
       { path: 'about-me', component: AboutMeComponent},
       { path: 'projects', component: ProjectsPageComponent},
       { path: 'contact', component: ContactComponent },
+      { path: 'projects/cyber/:id',
+            loadComponent: () =>
+            import('./components/projects-page-component/cyber-details/cyber-details')
+                  .then(m => m.CyberDetailsComponent) },
       { path: 'projects/:slug',
             loadComponent: () =>
             import('./components/projects-page-component/project-details/project-details')

@@ -1,60 +1,69 @@
-/* Section wrapper */
 .projects-preview {
-  padding: 4rem 1.5rem;
+  padding: 6rem 1.5rem;
   background: transparent;
 }
 
-/* Inner max width */
 .projects-inner {
   max-width: 1100px;
   margin: 0 auto;
   color: var(--text-main);
 }
 
-/* Header */
-.projects-header h3 {
-  color: var(--primary);
-  font-family: var(--font-heading, 'Poppins', sans-serif);
-  font-size: 1.5rem;
-  margin-bottom: 0.3rem;
+.projects-header {
+  margin-bottom: 3rem;
 }
 
-.projects-header .muted {
-  color: var(--text-soft);
-  margin-bottom: 2rem;
-}
-
-/* Projects grid layout ONLY */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
-/* CTA button */
 .projects-cta {
-  text-align: center;
-  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
 }
 
-.btn-outline {
-  padding: 0.7rem 1.4rem;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+.btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-soft);
   background: transparent;
-  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.25s ease, color 0.25s ease;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 200ms var(--ease-out-quart),
+              border-color 200ms var(--ease-out-quart),
+              background-color 200ms var(--ease-out-quart),
+              transform var(--dur-fast) var(--ease-spring);
 }
 
-.btn-outline:hover {
-  background: var(--primary);
-  color: #151515;
+.btn-outline-primary:hover {
+  color: var(--primary);
+  border-color: rgba(232, 145, 74, 0.4);
+  background: var(--primary-soft);
 }
 
-/* Responsive spacing */
+.btn-outline-primary:active {
+  transform: scale(0.97);
+}
+
+.cta-arrow {
+  transition: transform 220ms var(--ease-spring);
+}
+
+.btn-outline-primary:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
 @media (max-width: 500px) {
   .projects-preview {
-    padding: 3rem 1.25rem;
+    padding: 4rem 1.25rem;
   }
 }

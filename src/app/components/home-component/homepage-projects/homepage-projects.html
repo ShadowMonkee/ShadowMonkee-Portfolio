@@ -1,12 +1,15 @@
 <section class="projects-preview">
   <div class="projects-inner">
 
-    <div class="projects-header">
-      <h3>Recent Projects</h3>
-      <p class="muted">A selection of full-stack systems I've built for clients and personal work.</p>
+    <div class="projects-header" reveal>
+      <span class="section-label-line">Work</span>
+      <h2 class="section-title">Recent Projects</h2>
+      <p class="section-description">
+        A selection of full-stack systems built for clients and personal work.
+      </p>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid" revealStagger>
       <project-card
         *ngFor="let project of projects"
         [title]="project.title"
@@ -16,8 +19,11 @@
       ></project-card>
     </div>
 
-    <div class="projects-cta">
-      <a routerLink="/projects" class="btn-outline">View All Projects</a>
+    <div class="projects-cta" reveal>
+      <a routerLink="/projects" class="btn-outline-primary">
+        View all projects
+        <span class="cta-arrow">→</span>
+      </a>
     </div>
 
   </div>

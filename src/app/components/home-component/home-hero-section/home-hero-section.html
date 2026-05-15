@@ -1,39 +1,70 @@
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">
-      <img 
-        src="assets/Images/SMname.png" 
-        alt="ShadowMonkey"
-        class="hero-title-img"
-      />
-    </h1>    
-    <p>Full-stack web developer crafting tailored, scalable, and clean digital solutions.</p>
-    <p [typewritterEffect]="'From backend architecture to sleek front-end design, I deliver custom digital solutions built with precision, clarity, and long-term support in mind.'"></p>
-    <div class="hero-buttons">
-      <button
-        type="button" 
-        class="btn primary"
-        routerLink="projects"
-        routerLinkActive="active"
-      > 
-        View Projects
-      </button>
-      <button
-        type="button" 
-        class="btn outline"
-        routerLink="about-me"
-        routerLinkActive="active"
-      >
-        About Me
-      </button>
+<section class="hero-section">
+
+  <!-- Ambient background image -->
+  <div class="hero-bg-image"></div>
+
+  <div class="hero-inner">
+
+    <!-- ── LEFT: CONTENT ── -->
+    <div class="hero-content animate-entry">
+
+      <div class="hero-eyebrow">
+        <span class="eyebrow-pulse"></span>
+        <span>Available for work &middot; Belgium</span>
+      </div>
+
+      <h1 class="hero-heading">
+        I build<br>
+        <span class="hero-heading-accent">full-stack systems</span><br>
+        that scale.
+      </h1>
+
+      <p class="hero-description">
+        Spring-certified engineer. 5&plus; years shipping Java backends,
+        Angular frontends, and cloud-native architectures — from whiteboard to CI/CD.
+      </p>
+
+      <div class="hero-cta-row">
+        <a routerLink="/projects" class="hero-btn-primary">
+          View my work
+          <lucide-icon [img]="ArrowRight" [size]="15" color="currentColor" class="hero-btn-icon"></lucide-icon>
+        </a>
+        <a routerLink="/contact" class="hero-btn-ghost">Get in touch</a>
+      </div>
+
+      <div class="hero-stack">
+        <span class="stack-label">Stack</span>
+        <div class="stack-pills">
+          <span *ngFor="let t of techStack" class="stack-pill">{{ t }}</span>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div class="hero-visual">
-    <!-- Optional: subtle illustration / image -->
-  </div>
-  <div class="scroll-hint">
-    &#x2193; Scroll
+
+    <!-- ── RIGHT: STATS CARD ── -->
+    <div class="hero-card-col animate-entry-delayed">
+      <div class="stats-card">
+
+        <div class="stats-grid">
+          <div *ngFor="let s of stats" class="stat-item">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
+          </div>
+        </div>
+
+        <div class="stats-divider"></div>
+
+        <div class="cert-badge">
+          <lucide-icon [img]="ShieldCheck" [size]="20" color="currentColor" class="cert-icon"></lucide-icon>
+          <div class="cert-text">
+            <span class="cert-title">VMware Spring Professional</span>
+            <span class="cert-sub">Certified 2024</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
 </section>
-    

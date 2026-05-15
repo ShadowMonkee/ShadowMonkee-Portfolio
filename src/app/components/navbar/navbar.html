@@ -1,41 +1,25 @@
-<div 
-  class="navbar fixed w-full top-0 left-0 z-50 transition-all duration-500"
+<div
+  class="navbar"
   [class.navbar-scrolled]="isScrolled"
 >
-  <div class="container mx-auto flex items-center h-[150px] justify-between px-6">
+  <div class="navbar-inner">
 
-    <div class="navbar-logo" routerLink="/">
-      <img
-        src="assets/Images/SM.png" 
-        alt="ShadowMonkee Logo"
-      >
-    </div>
+    <a class="navbar-logo" routerLink="/" aria-label="Home">
+      <img src="assets/Images/SM.png" alt="ShadowMonkee">
+    </a>
 
-    <!-- Desktop Navigation -->
-    <div class="desktop-navbar md:flex gap-8">
-      <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="nav-btn"
-      >
-        Home
-      </a>
-      <a routerLink="/about-me" routerLinkActive="active" class="nav-btn">
-        About Me
-      </a>
-      <a routerLink="/projects" routerLinkActive="active" class="nav-btn">
-        Projects
-      </a>
-      <a routerLink="/contact" routerLinkActive="active" class="nav-btn">
-        Contact
-      </a>
-    </div>
+    <nav class="desktop-navbar" aria-label="Primary navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-btn">Home</a>
+      <a routerLink="/about-me" routerLinkActive="active" class="nav-btn">About</a>
+      <a routerLink="/projects" routerLinkActive="active" class="nav-btn">Projects</a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-btn contact-btn">Contact</a>
+    </nav>
 
-    <!-- Mobile Hamburger -->
     <button
-      class="mobile-menu-toggle hamburger"
+      class="hamburger"
+      [class.open]="mobileMenuOpen"
       (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="mobileMenuOpen"
       aria-label="Toggle navigation"
     >
       <span></span>
@@ -45,26 +29,11 @@
 
   </div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" [class.open]="mobileMenuOpen">
-    <a
-      routerLink="/"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="mobile-link"
-      (click)="closeMobileMenu()"
-    >Home</a>
+  <nav class="mobile-menu" [class.open]="mobileMenuOpen" aria-label="Mobile navigation">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMobileMenu()">Home</a>
+    <a routerLink="/about-me" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">About</a>
+    <a routerLink="/projects" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">Projects</a>
+    <a routerLink="/contact" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">Contact</a>
+  </nav>
 
-    <a routerLink="/about-me" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
-      About Me
-    </a>
-
-    <a routerLink="/projects" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
-      Projects
-    </a>
-
-    <a routerLink="/contact" routerLinkActive="active" class="mobile-link" (click)="closeMobileMenu()">
-      Contact
-    </a>
-  </div>
 </div>

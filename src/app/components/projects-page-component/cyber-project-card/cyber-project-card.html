@@ -1,0 +1,33 @@
+<div class="cyber-card">
+
+  <div class="cyber-card-top">
+    <span class="type-badge" [ngClass]="typeColor">{{ project.type }}</span>
+    <span class="platform-label">{{ project.platform }}</span>
+  </div>
+
+  <h3 class="cyber-card-title">{{ project.title }}</h3>
+
+  <p class="cyber-card-desc">{{ project.description }}</p>
+
+  <div class="cyber-card-tags">
+    <span *ngFor="let tag of project.tags" class="cyber-tag">{{ tag }}</span>
+  </div>
+
+  <div class="cyber-card-footer">
+    <span class="status-pill" [ngClass]="'status-' + project.status">
+      <span class="status-dot"></span>
+      {{ statusLabel }}
+    </span>
+
+    <a
+      [routerLink]="['/projects/cyber', project.id]"
+      class="cyber-link"
+    >
+      <ng-container *ngIf="project.status === 'published'">View writeup</ng-container>
+      <ng-container *ngIf="project.status === 'redacted'">View summary</ng-container>
+      <ng-container *ngIf="project.status === 'wip'">Preview</ng-container>
+      <span class="cyber-link-arrow">→</span>
+    </a>
+  </div>
+
+</div>

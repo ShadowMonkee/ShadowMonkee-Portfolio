@@ -1,5 +1,7 @@
 .projects-page {
-  padding: 5rem 1.5rem;
+  min-height: 100dvh;
+  padding: 5.5rem 1.5rem 6rem;
+  background: var(--bg-main);
 }
 
 .projects-inner {
@@ -7,22 +9,142 @@
   margin: 0 auto;
 }
 
+/* Header */
 .projects-header {
+  margin-bottom: 3rem;
+  padding-top: 1.5rem;
+}
+
+/* Tab bar */
+.tab-bar {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border-light);
   margin-bottom: 2.5rem;
 }
 
-.projects-header h1 {
-  color: var(--primary);
-  font-size: 2rem;
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 200ms var(--ease-out-quart);
 }
 
-.projects-header .muted {
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 260ms var(--ease-out-quart);
+}
+
+.tab-btn:hover {
   color: var(--text-soft);
-  max-width: 600px;
 }
 
+.tab-btn.active {
+  color: var(--text-main);
+}
+
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-icon {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.tab-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 0.1rem 0.45rem;
+  transition: color 200ms, background-color 200ms, border-color 200ms;
+}
+
+.tab-btn.active .tab-count {
+  color: var(--primary);
+  background: var(--primary-soft);
+  border-color: rgba(232, 145, 74, 0.25);
+}
+
+/* Tab panels */
+.tab-panel {
+  animation: panel-in 300ms var(--ease-out-quart) both;
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Engineering grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cyber section */
+.cyber-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dot-writeup  { background: #7EA896; }
+.dot-report   { background: #7BA5BA; }
+.dot-tool     { background: var(--primary); }
+.dot-research { background: #AC8FBF; }
+
+.cyber-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .projects-page {
+    padding: 5rem 1.25rem 4rem;
+  }
+  .tab-btn {
+    padding: 0.65rem 0.875rem;
+    font-size: 0.85rem;
+  }
 }

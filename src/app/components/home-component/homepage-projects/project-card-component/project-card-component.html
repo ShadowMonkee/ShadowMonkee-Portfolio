@@ -1,15 +1,23 @@
 <div class="project-card">
-  <div
-    class="project-image"
-    [style.backgroundImage]="'url(' + image + ')'"
-  ></div>
+
+  <div class="project-image-wrap">
+    <div
+      class="project-image"
+      [style.backgroundImage]="'url(' + image + ')'"
+      role="img"
+      [attr.aria-label]="title + ' preview'"
+    ></div>
+    <div class="project-image-overlay"></div>
+  </div>
 
   <div class="project-info">
-    <h4>{{ title }}</h4>
-    <p class="tech">{{ tech }}</p>
+    <h4 class="project-title">{{ title }}</h4>
+    <p class="project-tech">{{ tech }}</p>
 
     <a [routerLink]="link" class="project-link">
-      View Project →
+      View project
+      <span class="project-link-arrow">→</span>
     </a>
   </div>
+
 </div>

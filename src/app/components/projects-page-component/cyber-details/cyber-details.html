@@ -1,0 +1,121 @@
+<section class="cyber-detail-page" *ngIf="project; else notFound">
+  <div class="cyber-detail-inner">
+
+    <!-- Back link -->
+    <a [routerLink]="['/projects']" [queryParams]="{tab: 'cybersecurity'}" class="back-link">
+      <span class="back-arrow">←</span> Back to projects
+    </a>
+
+    <!-- Header -->
+    <header class="cyber-detail-header">
+      <div class="cyber-detail-meta">
+        <span class="type-badge" [ngClass]="typeClass">{{ project.type }}</span>
+        <span class="detail-platform">{{ project.platform }}</span>
+        <span *ngIf="project.detail?.difficulty" class="detail-difficulty">
+          {{ project.detail!.difficulty }}
+        </span>
+        <span *ngIf="project.detail?.date" class="detail-date">{{ project.detail!.date }}</span>
+        <span *ngIf="project.detail?.duration" class="detail-duration">
+          {{ project.detail!.duration }}
+        </span>
+      </div>
+
+      <h1 class="cyber-detail-title">{{ project.title }}</h1>
+
+      <div class="cyber-detail-tags">
+        <span *ngFor="let tag of project.tags" class="detail-tag">{{ tag }}</span>
+      </div>
+
+      <div class="detail-status-row">
+        <span class="status-pill" [ngClass]="'status-' + project.status">
+          <span class="status-dot"></span>{{ statusLabel }}
+        </span>
+        <a
+          *ngIf="project.link && project.status === 'published'"
+          [href]="project.link"
+          target="_blank"
+          rel="noopener"
+          class="external-link"
+        >
+          View on {{ project.platform }} <span class="link-arrow">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="cyber-detail-divider"></div>
+
+    <!-- Body -->
+    <div class="cyber-detail-body" *ngIf="project.detail as detail">
+
+      <!-- Overview -->
+      <section class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p *ngFor="let para of detail.overview" class="detail-para">{{ para }}</p>
+      </section>
+
+      <!-- Methodology -->
+      <section class="detail-section" *ngIf="detail.methodology?.length">
+        <h2 class="detail-section-title">Methodology</h2>
+        <ol class="methodology-list">
+          <li *ngFor="let step of detail.methodology; let i = index" class="methodology-step">
+            <span class="step-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="step-text">{{ step }}</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Findings (reports) -->
+      <section class="detail-section" *ngIf="detail.findings?.length">
+        <h2 class="detail-section-title">Findings</h2>
+        <div class="findings-grid">
+          <div
+            *ngFor="let finding of detail.findings"
+            class="finding-card"
+            [ngClass]="severityClass(finding.severity)"
+          >
+            <div class="finding-header">
+              <span class="finding-severity">{{ finding.severity }}</span>
+              <span class="finding-title">{{ finding.title }}</span>
+            </div>
+            <p class="finding-desc">{{ finding.description }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools -->
+      <section class="detail-section" *ngIf="detail.tools?.length">
+        <h2 class="detail-section-title">Tools Used</h2>
+        <div class="tools-list">
+          <span *ngFor="let tool of detail.tools" class="tool-pill">{{ tool }}</span>
+        </div>
+      </section>
+
+      <!-- Highlights -->
+      <section class="detail-section" *ngIf="detail.highlights?.length">
+        <h2 class="detail-section-title">Key Takeaways</h2>
+        <ul class="highlights-list">
+          <li *ngFor="let item of detail.highlights" class="highlight-item">
+            <span class="highlight-marker">—</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- No detail fallback -->
+    <div class="no-detail" *ngIf="!project.detail">
+      <p>Full write-up coming soon.</p>
+    </div>
+
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="cyber-detail-page">
+    <div class="cyber-detail-inner not-found">
+      <p class="not-found-text">Project not found.</p>
+      <a [routerLink]="['/projects']" class="back-link">← Back to projects</a>
+    </div>
+  </section>
+</ng-template>
